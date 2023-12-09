@@ -1,0 +1,297 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow the container to wrap on smaller screens */
+    with: 100%;
+    justify-content: space-between;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    width: calc(100% - 40px); /* Adjust width to account for margin */
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#income-expenses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Make grid items responsive */
+    gap: 20px;
+    margin-bottom: 20px; /* Add space between this grid and the next content */
+}
+
+#income-expenses div {
+    text-align: center;
+}
+
+#transaction-history select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px; /* Increase margin for spacing */
+}
+
+#transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+}
+
+#transaction-history th,
+#transaction-history td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+#new-transaction input,
+#new-transaction select,
+#new-transaction button {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px; /* Add margin-bottom for spacing */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#new-transaction button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#new-transaction button:hover {
+    background-color: #218838;
+}
+
+/* Responsive table */
+#transaction-history table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
+    .card {
+        margin: 10px; /* Reduce margin on smaller screens */
+        width: calc(100% - 20px); /* Adjust width to account for margin */
+    }
+
+    #income-expenses {
+        grid-template-columns: 1fr; /* Stack grid items on smaller screens */
+    }
+}
+
+.card-m-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* This adds space between the cards */
+    justify-content: space-evenly;
+}
+
+.card-m {
+    flex: 1; /* Each card will grow to fill the space */
+    min-width: 200px; /* Minimum width of each card to ensure content fits */
+    max-width: calc(33.333% - 20px); /* Adjust the width for 3 cards per row */
+}
+
+#transaction-history {
+    width: 100%;
+}
+
+.half-width-cards {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+    gap: 20px; /* Adjust the gap as needed */
+    margin-bottom: 20px; /* Space below this row for the next elements */
+}
+
+@media (max-width: 768px) {
+    .half-width-cards {
+        flex-direction: column; /* Stack the children on smaller screens */
+    }
+
+    .half-card {
+        width: 100%; /* Each child takes full width on smaller screens */
+    }
+}
+
+/* Each child of the flex container will take up half the space */
+.half-card {
+    flex: 1; /* Each child will grow to fill the space */
+    width: 50%; /* Explicitly define the width to be half */
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+.flex-half {
+    flex: 1; /* Each card will grow to fill the space */
+    min-width: 200px; /* Minimum width of each card to ensure content fits */
+    max-width: calc(33.333% - 20px); /* Adjust the width for 3 cards per row */
+}
+
+#new-transaction {
+    width: 100%;
+    order: 2; /* Make sure it comes after the balance and before transaction history */
+}
+
+@media (max-width: 768px) {
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .flex-half {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .card-m {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    #new-transaction {
+        order: 1; /* Reset order on smaller screens if needed */
+    }
+}
+
+.sidebar-links li a i { /* Icon styles, if necessary */
+    /* For example: */
+    margin-right: 10px; /* Spacing between icon and text */
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px; /* Sidebar width */
+    position: fixed;
+    padding-top: 60px;
+    top: 0;
+    left: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.5s; /* Smooth transition for the sidebar */
+    border-right: 1px solid black; /* Add a black right border */
+    z-index: 1000; /* Make sure the sidebar is on top of other content */
+}
+
+.sidebar.active {
+   width: 50px; /* Adjust the width to fit the icons */
+   padding-top: 60px; /* Maintain the padding at the top */
+}
+
+.sidebar-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-links li a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar-links li a:hover {
+    background-color: #ddd;
+}
+
+.link-text {
+    display: inline; /* Display inline by default */
+}
+
+.sidebar.active .link-text {
+    display: none; /* Hide the link text */
+}
+
+.sidebar-collapse-btn {
+    position: absolute; /* Position fixed relative to the viewport */
+    top: 10px; /* Adjust as needed */
+    z-index: 1001; /* Ensure the button is above the sidebar */
+    background-color: #228B22; /* Black background for visibility */
+    color: #fff; /* White text/icon color */
+    padding: 10px;
+    border: none; /* Optional: remove border */
+    cursor: pointer;
+    right: 10px;
+}
+
+/* Adjust content container when sidebar is collapsed */
+.container {
+    transition: margin-left 0.5s; /* Smooth transition for the margin */
+    padding: 16px;
+    margin-left: 250px; /* Same as the sidebar's width */
+}
+
+* When the sidebar is collapsed */
+.sidebar.active {
+    width: 50px; /* Collapse the sidebar */
+    /* Optional: hide the border when the sidebar is collapsed */
+    border-right: none;
+}
+
+.sidebar-collapse-btn.active {
+    left: 0; /* Align the button to the left when sidebar is collapsed */
+}
+
+.container.active {
+    margin-left: 0; /* Reset margin when sidebar is collapsed */
+}
+
+/* ... */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+    }
+    .sidebar.active {
+        width: 100%; /* Sidebar takes full width on smaller screens */
+    }
+    .container.active {
+        margin-left: 0;
+    }
+}
+
+.sidebar-footer {
+    text-align: center;
+    margin-top: auto; /* Push to the bottom of the sidebar */
+    font-size: 12px;
+    color: #555;
+}

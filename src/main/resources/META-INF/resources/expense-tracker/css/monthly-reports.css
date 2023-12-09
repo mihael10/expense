@@ -1,0 +1,197 @@
+/* Styles specific to the monthly reports page */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+#month-select {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+#monthly-transactions {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#monthly-transactions th,
+#monthly-transactions td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#monthly-transactions th {
+    background-color: #f4f4f4;
+}
+
+#monthly-transactions tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Responsive table for smaller screens */
+@media (max-width: 768px) {
+    #monthly-transactions {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+
+
+.sidebar-links li a i { /* Icon styles, if necessary */
+    /* For example: */
+    margin-right: 10px; /* Spacing between icon and text */
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px; /* Sidebar width */
+    position: fixed;
+    padding-top: 60px;
+    top: 0;
+    left: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.5s; /* Smooth transition for the sidebar */
+    border-right: 1px solid black; /* Add a black right border */
+    z-index: 1000; /* Make sure the sidebar is on top of other content */
+}
+
+.sidebar.active {
+   width: 50px; /* Adjust the width to fit the icons */
+   padding-top: 60px; /* Maintain the padding at the top */
+}
+
+.sidebar-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-links li a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar-links li a:hover {
+    background-color: #ddd;
+}
+
+.link-text {
+    display: inline; /* Display inline by default */
+}
+
+.sidebar.active .link-text {
+    display: none; /* Hide the link text */
+}
+
+.sidebar-collapse-btn {
+    position: absolute; /* Position fixed relative to the viewport */
+    top: 10px; /* Adjust as needed */
+    z-index: 1001; /* Ensure the button is above the sidebar */
+    background-color: #228B22; /* Black background for visibility */
+    color: #fff; /* White text/icon color */
+    padding: 10px;
+    border: none; /* Optional: remove border */
+    cursor: pointer;
+    right: 10px;
+}
+
+/* Adjust content container when sidebar is collapsed */
+.container {
+    transition: margin-left 0.5s; /* Smooth transition for the margin */
+    padding: 16px;
+    margin-left: 250px; /* Same as the sidebar's width */
+}
+
+* When the sidebar is collapsed */
+.sidebar.active {
+    width: 50px; /* Collapse the sidebar */
+    /* Optional: hide the border when the sidebar is collapsed */
+    border-right: none;
+}
+
+.sidebar-collapse-btn.active {
+    left: 0; /* Align the button to the left when sidebar is collapsed */
+}
+
+.container.active {
+    margin-left: 0; /* Reset margin when sidebar is collapsed */
+}
+
+/* ... */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+    }
+    .sidebar.active {
+        width: 100%; /* Sidebar takes full width on smaller screens */
+    }
+    .container.active {
+        margin-left: 0;
+    }
+}
+
+button {
+    background-color: #228B22;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #228B22;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+.sidebar-footer {
+    text-align: center;
+    margin-top: auto; /* Push to the bottom of the sidebar */
+    font-size: 12px;
+    color: #555;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Transaction Report</title>
+    <link rel="stylesheet" href="css/monthly-reports.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>Transaction Reports</h1>
+</header>
+<div id="sidebar" class="sidebar">
+    <button id="sidebarCollapse" class="sidebar-collapse-btn">
+        <i class="fas fa-bars"></i> <!-- Font Awesome icon -->
+    </button>
+    <ul class="sidebar-links">
+        <li><a href="home.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="monthly-reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+        <li><a href="debt-plan.html"><i class="fas fa-file-invoice-dollar"></i> Debt Plan</a></li>
+        <!-- Add more links as needed -->
+    </ul>
+    <p class="sidebar-footer">Created by Mihael Josifovski<br>version v1.0.0</p>
+</div>
+<div class="container">
+    <!-- A dropdown to select the month -->
+    <h3>Select Month: </h3>
+    <label for="month-select"></label>
+    <select id="month-select">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+
+    <!-- Table for displaying transactions -->
+    <table id="monthly-transactions">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <!-- Add more details as required -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Transaction data will be inserted here -->
+        </tbody>
+    </table>
+    <button id="download-excel">Download Excel</button>
+</div>
+<script src="js/monthly-reports.js"></script>
+</body>
+</html>

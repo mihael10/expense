@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+
+  quarkus-app:
+    image: quarkus-app
+    container_name: quarkus-app
+    ports:
+      - "8080:8080"
+    environment:
+      - QUARKUS_DATASOURCE_URL=jdbc:postgresql://localhost:5432/expenses
+      - QUARKUS_DATASOURCE_USERNAME=postgres
+      - QUARKUS_DATASOURCE_PASSWORD=admin
+    networks:
+      - quarkus-network
+    depends_on:
+      - postgres-db
+    restart: unless-stopped
+
+  postgres-db:
+    image: postgres:13
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: expenses
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - quarkus-network
+    restart: unless-stopped
+
+networks:
+  quarkus-network:
+    driver: bridge
+
+volumes:
+  postgres-data:

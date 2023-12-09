@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>Expense Tracker</h1>
+</header>
+<div id="sidebar" class="sidebar">
+    <button id="sidebarCollapse" class="sidebar-collapse-btn">
+        <i class="fas fa-bars"></i> <!-- Font Awesome icon -->
+    </button>
+    <ul class="sidebar-links">
+        <li><a href="home.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="monthly-reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+        <li><a href="debt-plan.html"><i class="fas fa-file-invoice-dollar"></i> Debt Plan</a></li>
+        <!-- Add more links as needed -->
+    </ul>
+    <p class="sidebar-footer">Created by Mihael Josifovski<br>version v1.0.0</p>
+</div>
+<div class="container">
+    <div class="content">
+        <section id="balance" class="card">
+            <h2>Total Balance</h2>
+            <p id="total-balance">MKD 0.00</p>
+        </section>
+        <div class="half-width-cards">
+        <section id="income-expense" class="card half-card">
+            <h1>Current Month</h1>
+            <div>
+                <h3>Income</h3>
+                <p id="total-income">MKD 0.00</p>
+            </div>
+            <div>
+                <h3>Projected Income</h3>
+                <p id="projected-total-income">MKD 0.00</p>
+            </div>
+            <div>
+                <h3>Expense</h3>
+                <p id="total-expense">MKD 0.00</p>
+            </div>
+            <div>
+                <h3>Debt</h3>
+                <p id="total-debt">MKD 0.00</p>
+            </div>
+            <div> <!-- New div for "Other" category -->
+                <h3>Other</h3>
+                <p id="total-other">MKD 0.00</p> <!-- New paragraph for "Other" category total -->
+            </div>
+        </section>
+
+        <section class="chart-container half-card">
+            <canvas id="incomeChart"></canvas>
+            <!-- More charts can be added here -->
+        </section>
+        </div>
+    </div>
+
+    <section id="transaction-history" class="card">
+        <h1>Transaction History</h1>
+        <label for="category-filter">Filter by Category:</label>
+        <select id="category-filter">
+            <option value="all">All Categories</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+            <option value="debt">Debt</option>
+            <option value="other">Other</option>
+            <option value="Subscription">Subscription</option>
+        </select>
+        <table>
+            <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Date/Time</th>
+            </tr>
+            </thead>
+            <tbody id="transaction-list">
+            <!-- Transactions will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </section>
+    <section id="new-transaction" class="card">
+        <h1>Add New Transaction</h1>
+        <form id="transaction-form">
+            <label for="transaction-name">Description:</label>
+            <input type="text" id="transaction-name" placeholder="Enter transaction name" required>
+            <label for="transaction-amount">Amount:</label>
+            <input type="number" id="transaction-amount" placeholder="Enter amount" required>
+            <label for="transaction-category">Category:</label>
+            <select id="transaction-category">
+                <option value="INCOME">INCOME</option>
+                <option value="EXPENSE">EXPENSE</option>
+                <option value="DEBT">DEBT</option>
+                <option value="SUBSCRIPTION">SUBSCRIPTION</option>
+                <option value="OTHER">OTHER</option>
+            </select>
+            <button type="submit">Add Transaction</button>
+        </form>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
